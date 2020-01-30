@@ -1,0 +1,64 @@
+" plugins (To install plugins, execute ':PlugInstall')
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'leafgarland/typescript-vim'
+Plug 'posva/vim-vue'
+Plug 'scrooloose/nerdtree'
+call plug#end()
+
+" set key mapping
+map <C-f> :NERDTreeToggle<CR>
+
+" set number
+set number
+
+" set width of tab character
+set tabstop=2
+" add indent automatically
+set autoindent
+" set width of indent when autoindent is active
+set shiftwidth=2
+" enable soft tab
+set expandtab
+
+" settings for .go file
+if expand("%:t") =~ ".*\.go"
+  set noexpandtab
+  set tabstop=2
+  set shiftwidth=2
+endif
+
+" set encoding
+set encoding=utf-8
+
+" disable vi compatibility
+set nocompatible
+
+" enable spell check
+set spell
+" exclude Japanese from spell check
+set spelllang+=cjk
+
+" set color scheme
+colorscheme molokai
+set t_Co=256
+
+" enable syntax check
+syntax enable
+
+" show cursor position
+set ruler
+
+" visualize invisible characters
+set list
+set listchars=tab:»=,trail:=
+
+let g:go_template_autocreate = 0
+
+" templates
+" .go
+autocmd BufNewFile *.go :0r ~/.vim/templates/template.go
+" .html
+autocmd BufNewFile *.html :0r ~/.vim/templates/template.html
+" .js
+autocmd BufNewFile *.js :0r ~/.vim/templates/template.js

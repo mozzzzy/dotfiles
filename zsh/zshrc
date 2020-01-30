@@ -1,0 +1,18 @@
+# alias
+alias ls='ls -aG'
+alias ll='ls -l'
+
+# enable complement
+autoload -U compinit
+compinit
+
+autoload -U colors
+colors
+
+source ~/zsh/.zsh-autosuggestions.zsh
+source ~/zsh/zsh-git-prompt/zshrc.sh
+
+source ~/.git-prompt.sh
+setopt PROMPT_SUBST
+PROMPT='${fg[green]}%n@%m ${fg[cyan]}%c ${fg[blue]}(%*) ${reset_color}$(git_super_status)
+$ '

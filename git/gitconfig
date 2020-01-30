@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+  # FIXME
+  name =
+  email =
+[core]
+  editor = vim
+[push]
+  default = simple
+[alias]
+  r = remote -v
+  s = status
+  l = log --oneline --graph --all

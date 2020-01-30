@@ -1,0 +1,44 @@
+#
+# alias
+#
+
+alias ls='ls -aG'
+alias la='ls'
+alias ll='ls -l'
+
+#
+# git-prompt.sh   ##
+#
+
+source ~/.git-prompt.sh
+GIT_PS1_SHOWDIRTYSTATE=true
+
+#
+# prompt
+#
+
+# Character color
+
+# default    \[\e[0;0m\]
+# black      \[\e[0;30m\]
+# red        \[\e[0;31m\]
+# green      \[\e[0;32m\]
+# yellow     \[\e[0;33m\]
+# blue       \[\e[0;34m\]
+# purple     \[\e[0;35m\]
+# light blue \[\e[0;36m\]
+# white      \[\e[0;37m\]
+
+# Background color
+
+# default    \[\e[0;0m\]
+# black      \[\e[0;40m\]
+# red        \[\e[0;41m\]
+# green      \[\e[0;42m\]
+# yellow     \[\e[0;43m\]
+# blue       \[\e[0;44m\]
+# purple     \[\e[0;45m\]
+# light blue \[\e[0;46m\]
+# white      \[\e[0;47m\]
+
+PS1='\[\e[0;32m\]\u@\h \[\e[0;36m\]\W \[\e[0;34m\](\t) \[\e[0;35m\]$(__git_ps1 "(%s)")\[\e[0m\]\n$ '
