@@ -10,9 +10,25 @@ autoload -U colors
 colors
 
 source ~/zsh/.zsh-autosuggestions.zsh
-source ~/zsh/zsh-git-prompt/zshrc.sh
 
 source ~/.git-prompt.sh
+
+# If set nonempty value,
+# unstaged (*) and staged (+) changes will be shown next to the branch name.
+GIT_PS1_SHOWDIRTYSTATE=1
+# If set GIT_PS1_SHOWUPSTREAM="auto",
+# "<" indicates you are behind,
+# ">" indicates you are ahead,
+# "<>" indicates you have diverged
+# "=" indicates that there is no difference.
+GIT_PS1_SHOWUPSTREAM="auto"
+# If set nonempty value,
+# '%' will be shown next to the branch name when untracked files exist.
+GIT_PS1_SHOWUNTRACKEDFILES=1
+# If set nonempty value,
+# '$' will be shown next to the branch name if something is stashed.
+GIT_PS1_SHOWSTASHSTATE=1
+
 setopt PROMPT_SUBST
-PROMPT='${fg[green]}%n@%m ${fg[cyan]}%c ${fg[blue]}(%*) ${reset_color}$(git_super_status)
+PROMPT='${fg[green]}%n@%m ${fg[cyan]}%c ${fg[blue]}(%*)${fg[magenta]}$(__git_ps1)${reset_color}
 $ '

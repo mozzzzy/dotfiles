@@ -1,5 +1,5 @@
 .PHONY: install
-install: preinstall install_zshrc install_zsh-autosuggestions install_zsh-git-prompt
+install: preinstall install_zshrc install_zsh-autosuggestions install_git_prompt_sh
 
 .PHONY: preinstall
 preinstall:
@@ -13,9 +13,9 @@ install_zshrc: zshrc
 install_zsh-autosuggestions: zsh-autosuggestions/zsh-autosuggestions.zsh
 	cp $^ ~/zsh/.zsh-autosuggestions.zsh
 
-.PHONY: install_zsh-git-prompt
-install_zsh-git-prompt: zsh-git-prompt
-	cp -r $^ ~/zsh/
+.PHONY: install_git_prompt_sh
+install_git_prompt_sh: git-prompt.sh
+	cp $^ ~/.$^
 
 .PHONY: clean
 clean:
