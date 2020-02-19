@@ -38,6 +38,12 @@ set nocompatible
 set spell
 " exclude Japanese from spell check
 set spelllang+=cjk
+" ignore spell check of camel case
+fun! IgnoreCamelCaseSpell()
+  syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell transparent
+  syn cluster Spell add=CamelCase
+endfun
+autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
 
 " set color scheme
 colorscheme molokai
