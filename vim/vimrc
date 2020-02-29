@@ -1,31 +1,41 @@
+"
 " plugins (To install plugins, execute ':PlugInstall')
+"
+
 call plug#begin('~/.vim/plugged')
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'leafgarland/typescript-vim'
-Plug 'posva/vim-vue'
+" file tree
 Plug 'scrooloose/nerdtree'
+" lsp
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+" for auto completion
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
-" set key mapping
-map <C-f> :NERDTreeToggle<CR>
+"
+" options
+"
 
-" set number
+" line number
 set number
 
 " set width of tab character
 set tabstop=2
+
 " add indent automatically
 set autoindent
+
 " set width of indent when autoindent is active
 set shiftwidth=2
-" enable soft tab
-set expandtab
 
-" settings for .go file
+" enable soft tab
 if expand("%:t") =~ ".*\.go"
+  " if .go file, disable soft tab
   set noexpandtab
-  set tabstop=2
-  set shiftwidth=2
+else
+  set expandtab
 endif
 
 " set encoding
@@ -36,21 +46,12 @@ set nocompatible
 
 " enable spell check
 set spell
-" exclude Japanese from spell check
+
+" ignore Japanese check of Japanese
 set spelllang+=cjk
-" ignore spell check of camel case
-fun! IgnoreCamelCaseSpell()
-  syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell transparent
-  syn cluster Spell add=CamelCase
-endfun
-autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
 
-" set color scheme
-colorscheme molokai
+" set number of colors to use
 set t_Co=256
-
-" enable syntax check
-syntax enable
 
 " show cursor position
 set ruler
@@ -59,7 +60,28 @@ set ruler
 set list
 set listchars=tab:»=,trail:=
 
-let g:go_template_autocreate = 0
+"
+" variables
+"
+
+let g:lsp_diagnostics_echo_cursor = 1
+
+"
+" key mappings
+"
+
+map <C-f> :NERDTreeToggle<CR>
+
+"
+" auto commands
+"
+
+" ignore spell check of camel case
+fun! IgnoreCamelCaseSpell()
+  syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell transparent
+  syn cluster Spell add=CamelCase
+endfun
+autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
 
 " templates
 " .go
@@ -68,3 +90,12 @@ autocmd BufNewFile *.go :0r ~/.vim/templates/template.go
 autocmd BufNewFile *.html :0r ~/.vim/templates/template.html
 " .js
 autocmd BufNewFile *.js :0r ~/.vim/templates/template.js
+
+"
+" others
+"
+
+" enable syntax check
+syntax enable
+" set color scheme
+colorscheme molokai
