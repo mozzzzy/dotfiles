@@ -71,6 +71,8 @@ let g:lsp_diagnostics_echo_cursor = 1
 "
 
 map <C-f> :NERDTreeToggle<CR>
+map <C-]> :LspDefinition<CR>
+map <C-E> :LspDocumentFormat<CR>
 
 "
 " auto commands
