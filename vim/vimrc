@@ -21,6 +21,9 @@ call plug#end()
 " disable beep sound
 set belloff=all
 
+" enable gurbg and curbg on wsl
+set t_ut=
+
 " line number
 set number
 
