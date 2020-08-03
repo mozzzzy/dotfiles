@@ -45,4 +45,10 @@ $ '
 # initial commands
 #
 
+# set default permission of new files and directories
 umask 022
+
+# start ssh-agent
+eval `ssh-agent`
+# add private key
+ssh-add
