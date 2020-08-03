@@ -52,3 +52,7 @@ umask 022
 eval `ssh-agent`
 # add private key
 ssh-add
+
+# HACK: Fix bug of wsl: Font settings not working for WSL apps that draw over the entire screen
+# See https://github.com/microsoft/Terminal/issues/177
+TERM=xterm-color
