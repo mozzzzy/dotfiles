@@ -1,6 +1,14 @@
+#
 # alias
-alias ls='ls -aG'
+#
+
+# for unix ls
+#alias ls='ls -aG'
+# for gnu ls
+alias ls='ls --color=auto'
+alias la='ls'
 alias ll='ls -l'
+
 
 # enable complement
 autoload -U compinit
