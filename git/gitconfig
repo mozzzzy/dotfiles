@@ -8,6 +8,8 @@
 [push]
   default = simple
 [alias]
+  b = branch -a
+  d = diff
+  l = log --oneline --graph --all
   r = remote -v
   s = status
-  l = log --oneline --graph --all
