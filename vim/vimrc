@@ -18,6 +18,9 @@ call plug#end()
 " options
 "
 
+" disable beep sound
+set belloff=all
+
 " line number
 set number
 
