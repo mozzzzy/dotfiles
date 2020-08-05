@@ -56,3 +56,14 @@ ssh-add
 # HACK: Fix bug of wsl: Font settings not working for WSL apps that draw over the entire screen
 # See https://github.com/microsoft/Terminal/issues/177
 TERM=xterm-color
+
+# for golang
+export GOPATH=$HOME/base/codes/github/go
+export PATH=$PATH:$HOME/base/codes/github/go/bin
+
+# save command history
+HISTFILE=~/.zsh_history
+HISTSIZE=6000000
+SAVEHIST=6000000
+setopt hist_ignore_dups     # ignore duplication command history list
+setopt share_history        # share command history data
