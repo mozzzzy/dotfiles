@@ -41,6 +41,9 @@ setopt PROMPT_SUBST
 PROMPT='${fg[green]}%n@%m ${fg[cyan]}%c ${fg[blue]}(%*)${fg[magenta]}$(__git_ps1)${reset_color}
 $ '
 
+# disable bell
+setopt no_beep
+
 #
 # initial commands
 #
