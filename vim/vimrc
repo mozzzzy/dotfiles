@@ -109,6 +109,8 @@ autocmd BufNewFile *.go :0r ~/.vim/templates/template.go
 autocmd BufNewFile *.html :0r ~/.vim/templates/template.html
 " .js
 autocmd BufNewFile *.js :0r ~/.vim/templates/template.js
+" makefile
+autocmd BufNewFile Makefile :0r ~/.vim/templates/Makefile
 
 "
 " others
