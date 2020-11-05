@@ -1,5 +1,5 @@
 .PHONY: install
-install: preinstall install_zshrc install_zlogout install_zsh-autosuggestions install_git_prompt_sh
+install: preinstall install_zshrc install_zlogout install_zsh-autosuggestions install_git_prompt_sh install_zsh_syntax-highlighting
 
 .PHONY: preinstall
 preinstall:
@@ -20,6 +20,10 @@ install_zsh-autosuggestions: zsh-autosuggestions/zsh-autosuggestions.zsh
 .PHONY: install_git_prompt_sh
 install_git_prompt_sh: git-prompt.sh
 	cp $^ ~/.$^
+
+.PHONY: install_zsh_syntax-highlighting
+install_zsh_syntax-highlighting: zsh-syntax-highlighting
+	cp -r $^ ~/zsh/
 
 .PHONY: clean
 clean:

@@ -18,7 +18,7 @@ autoload -U colors
 colors
 
 source ~/zsh/.zsh-autosuggestions.zsh
-
+source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.git-prompt.sh
 
 # If set nonempty value,
