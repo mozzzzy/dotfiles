@@ -1,21 +1,17 @@
-#
-# alias
-#
+#source ~/zsh/zshrc_parts/partial_zshrc_for_mac
+source ~/zsh/zshrc_parts/partial_zshrc_for_linux
+source ~/zsh/zshrc_parts/partial_zshrc_for_linux_ssh_agent
+source ~/zsh/zshrc_parts/partial_zshrc_for_tmux
+source ~/zsh/zshrc_parts/partial_zshrc_for_wsl
+source ~/zsh/zshrc_parts/partial_zshrc_for_wsl_systemd
 
-# for unix ls
-#alias ls='ls -aG'
-# for gnu ls
-alias ls='ls --color=auto --all'
+# alias
 alias la='ls'
 alias ll='ls -l'
-
 
 # enable complement
 autoload -U compinit
 compinit
-
-autoload -U colors
-colors
 
 source ~/zsh/.zsh-autosuggestions.zsh
 source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -37,6 +33,10 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 # '$' will be shown next to the branch name if something is stashed.
 GIT_PS1_SHOWSTASHSTATE=1
 
+# to use green, cyan, blue ...
+autoload -U colors
+colors
+
 setopt PROMPT_SUBST
 PROMPT='${fg[green]}%n@%m ${fg[cyan]}%c ${fg[blue]}(%*)${fg[magenta]}$(__git_ps1)${reset_color}
 $ '
@@ -44,21 +44,8 @@ $ '
 # disable bell
 setopt no_beep
 
-#
-# initial commands
-#
-
 # set default permission of new files and directories
 umask 022
-
-# start ssh-agent
-eval `ssh-agent`
-# add private key
-ssh-add
-
-# HACK: Fix bug of wsl: Font settings not working for WSL apps that draw over the entire screen
-# See https://github.com/microsoft/Terminal/issues/177
-TERM=xterm-color
 
 # for golang
 export GOPATH=$HOME/base/codes/github/go

@@ -1,0 +1,6 @@
+#
+# Settings for only linux
+#
+
+# for GNU ls
+alias ls='ls --color=auto --all'

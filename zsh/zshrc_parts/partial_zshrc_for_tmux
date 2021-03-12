@@ -1,0 +1,33 @@
+#
+# Check if commands exist
+#
+READY=1
+# check if "tmux" exists
+if ! type "tmux" > /dev/null; then
+  echo "[Error] tmux does not exist."
+  READY=0
+fi
+
+#
+# start tmux automatically
+#
+if [[ $READY -eq 1 ]]; then
+  if [[ ! -n $TMUX ]]; then
+    # get the session list
+    ID_LINE="`tmux ls`"
+
+    # if no session, create new
+    if [[ -z "$ID_LINE" ]]; then
+      tmux new-session && exit
+    fi
+    # if the session exists, attach
+    ID=`echo $ID_LINE | awk '{print substr($1, 0, index($1, ":") - 1)}'`
+    if [[ -n "$ID" ]]; then
+      tmux a -t "$ID" && exit
+    else
+      :  # Start terminal normally
+    fi
+  fi
+else
+  echo "Skip starting tmux."
+fi

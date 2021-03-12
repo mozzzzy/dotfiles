@@ -1,0 +1,6 @@
+#
+# Settings for only mac
+#
+
+# For UNIX ls
+alias ls='ls -aG'

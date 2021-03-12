@@ -1,0 +1,43 @@
+#
+# Check if commands exist
+#
+READY=1
+# check if "which" exists
+if ! type "which" > /dev/null; then
+  echo "[Error] which does not exist."
+  READY=0
+fi
+# check if "pidof" exists
+if ! type "pidof" > /dev/null; then
+  echo "[Error] pidof does not exist."
+  READY=0
+fi
+# check if "unshare" exists
+if ! type "unshare" > /dev/null; then
+  echo "[Error] unshare does not exist."
+  READY=0
+fi
+# check if "daemonize" exists
+if ! type "daemonize" > /dev/null; then
+  echo "[Error] daemonize does not exist."
+  READY=0
+fi
+
+#
+# start systemd automatically
+#
+if [[ $READY -eq 1 ]]; then
+  if [[ ! -n `pidof systemd` ]]; then
+    echo "systemd is not working. Start."
+    sudo daemonize \
+      unshare --fork --pid --mount-proc \
+      /lib/systemd/systemd --system-unit=basic.target
+    sleep 1
+    echo "systemd is now working (pid: `pidof systemd`)"
+  else
+    echo "systemd is working (pid: `pidof systemd`)"
+  fi
+  echo "To execute systemctl command, run sudo nsenter -t `pidof systemd` -m -u -p /usr/bin/zsh"
+else
+  echo "Skip starting systemd."
+fi

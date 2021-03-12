@@ -1,5 +1,5 @@
 .PHONY: install
-install: preinstall install_zshrc install_zlogout install_zsh-autosuggestions install_git_prompt_sh install_zsh_syntax-highlighting
+install: preinstall install_zshrc install_zshrc_parts install_zlogout install_zsh-autosuggestions install_git_prompt_sh install_zsh_syntax-highlighting
 
 .PHONY: preinstall
 preinstall:
@@ -8,6 +8,10 @@ preinstall:
 .PHONY: install_zshrc
 install_zshrc: zshrc
 	cp $^ ~/.$^
+
+.PHONY: install_zshrc_parts
+install_zshrc_parts: zshrc_parts
+	cp -r $^ ~/zsh/$^
 
 .PHONY: install_zlogout
 install_zlogout: zlogout

@@ -1,0 +1,42 @@
+#
+# Check if commands exist
+#
+READY=1
+# check if "pidof" exists
+if ! type "pidof" > /dev/null; then
+  echo "[Error] pidof does not exist."
+  READY=0
+fi
+# check if "ssh-agent" exists
+if ! type "ssh-agent" > /dev/null; then
+  echo "[Error] ssh-agent does not exist."
+  READY=0
+fi
+# check if "ssh-add" exists
+if ! type "ssh-add" > /dev/null; then
+  echo "[Error] ssh-add does not exist."
+  READY=0
+fi
+
+if [[ $READY -eq 1 ]]; then
+  if [[ -z `pidof ssh-agent` ]]; then
+    echo "ssh-agent is not working. Start."
+    if [[ -e ~/.ssh/ssh-agent-out ]]; then
+      echo "Remove old ~/.ssh/ssh-agent-out"
+      rm ~/.ssh/ssh-agent-out
+    fi
+    ssh-agent > ~/.ssh/ssh-agent-out
+    eval `cat ~/.ssh/ssh-agent-out`
+    echo "Add private key to ssh-agent"
+    ssh-add
+  else
+    echo "ssh-agent is working."
+    if [[ ! -e ~/.ssh/ssh-agent-out ]]; then
+      echo "[Error] ~/.ssh/ssh-agent-out does not exist."
+    else
+      eval `cat ~/.ssh/ssh-agent-out`
+    fi
+  fi
+else
+  echo "Skip starting ssh-agent."
+fi
