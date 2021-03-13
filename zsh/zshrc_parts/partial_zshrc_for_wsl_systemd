@@ -13,8 +13,9 @@ if ! type "pidof" > /dev/null; then
   READY=0
 fi
 # check if "unshare" exists
-if ! type "unshare" > /dev/null; then
-  echo "[Error] unshare does not exist."
+# NOTE: Path of command for daemonize should be Absolute path. So I check with "/usr/bin/".
+if ! type "/usr/bin/unshare" > /dev/null; then
+  echo "[Error] /usr/bin/unshare does not exist."
   READY=0
 fi
 # check if "daemonize" exists
@@ -30,7 +31,7 @@ if [[ $READY -eq 1 ]]; then
   if [[ ! -n `pidof systemd` ]]; then
     echo "systemd is not working. Start."
     sudo daemonize \
-      unshare --fork --pid --mount-proc \
+      /usr/bin/unshare --fork --pid --mount-proc \
       /lib/systemd/systemd --system-unit=basic.target
     sleep 1
     echo "systemd is now working (pid: `pidof systemd`)"
