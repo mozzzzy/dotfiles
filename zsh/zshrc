@@ -1,9 +1,12 @@
+# For self built packages
+export PATH=/opt/bin:$PATH
+
 #source ~/zsh/zshrc_parts/partial_zshrc_for_mac
 source ~/zsh/zshrc_parts/partial_zshrc_for_linux
 source ~/zsh/zshrc_parts/partial_zshrc_for_linux_ssh_agent
 source ~/zsh/zshrc_parts/partial_zshrc_for_tmux
-source ~/zsh/zshrc_parts/partial_zshrc_for_wsl
-source ~/zsh/zshrc_parts/partial_zshrc_for_wsl_systemd
+#source ~/zsh/zshrc_parts/partial_zshrc_for_wsl
+#source ~/zsh/zshrc_parts/partial_zshrc_for_wsl_systemd
 
 # alias
 alias la='ls'
