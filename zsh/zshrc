@@ -1,10 +1,17 @@
 # For self built packages
 export PATH=/opt/bin:$PATH
 
-#source ~/zsh/zshrc_parts/partial_zshrc_for_mac
-source ~/zsh/zshrc_parts/partial_zshrc_for_linux
-source ~/zsh/zshrc_parts/partial_zshrc_for_linux_ssh_agent
+# For linux
+#source ~/zsh/zshrc_parts/partial_zshrc_for_linux
+
+# For mac
+source ~/zsh/zshrc_parts/partial_zshrc_for_mac
+
+# For both linux and mac
 source ~/zsh/zshrc_parts/partial_zshrc_for_tmux
+source ~/zsh/zshrc_parts/partial_zshrc_for_ssh_agent
+
+# For wsl
 #source ~/zsh/zshrc_parts/partial_zshrc_for_wsl
 #source ~/zsh/zshrc_parts/partial_zshrc_for_wsl_systemd
 
