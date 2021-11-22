@@ -1,0 +1,96 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "ctrl+]",
+    "command": "-extension.vim_ctrl+]",
+    "when": "editorTextFocus && vim.active && vim.use<C-]> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "ctrl+[Minus]",
+    "command": "workbench.action.navigateBack"
+  },
+  {
+    "key": "ctrl+[Minus]",
+    "command": "-workbench.action.navigateBack"
+  },
+  // Move from file tree to editor
+  {
+    "key": "ctrl+w ctrl+l",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "!editorFocus"
+  },
+  // Move from editor to file tree
+  {
+    "key": "ctrl+w ctrl+l",
+    "command": "workbench.action.navigateEditorGroups",
+    "when": "!editorFocus"
+  },
+  // Open file on editor by Enter key
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "explorerViewletFocus && listFocus &&explorerViewletVisible && !inputFocus"
+  },
+  // Open or Close side bar
+  {
+    "key": "ctrl+f",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  // Open file to the side
+  {
+    "key": "s",
+    "command": "explorer.openToSide",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  // Format by ctl+e
+  {
+    "key": "shift+alt+f",
+    "command": "-notebook.formatCell",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "notebook.formatCell",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-editor.action.formatDocument.none",
+    "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "notebook.format",
+    "when": "notebookEditable && !editorTextFocus && activeEditor == 'workbench.editor.notebook'"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-notebook.format",
+    "when": "notebookEditable && !editorTextFocus && activeEditor == 'workbench.editor.notebook'"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "filesExplorer.findInFolder",
+    "when": "explorerResourceIsFolder && explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-filesExplorer.findInFolder",
+    "when": "explorerResourceIsFolder && explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  }
+]

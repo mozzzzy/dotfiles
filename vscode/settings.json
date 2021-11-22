@@ -1,0 +1,13 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    // set zoom level
+    "window.zoomLevel": -1,
+    // make Visual Studio editor stop scrolling past bottom of a file
+    "editor.scrollBeyondLastLine": false,
+    // disable mini map
+    "editor.minimap.enabled": false,
+    // don't confirm when I delete a file
+    "explorer.confirmDelete": false,
+    // don't confirm when I drag and drop a file
+    "explorer.confirmDragAndDrop": false
+}
